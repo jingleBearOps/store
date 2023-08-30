@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
-import { Product } from './product';
+import { Product } from '../models/product';
 const products = [
   {name:'product1', price: 100.00},
   {name:'product2', price: 200.00},
