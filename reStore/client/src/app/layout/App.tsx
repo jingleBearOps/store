@@ -4,6 +4,7 @@ import Header from "./Header";
 import { Container } from "@mui/system";
 import {ThemeProvider, createTheme} from '@mui/material/styles'
 import { useState } from 'react';
+import { Outlet } from "react-router";
 const products = [
   {name:'product1', price: 100.00},
   {name:'product2', price: 200.00},
@@ -28,7 +29,7 @@ function App() {
       <CssBaseline/>
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange}/>
       <Container>
-        <Catalog />
+        <Outlet />
       </Container>
     </ThemeProvider>
   );
