@@ -1,9 +1,10 @@
 import {CssBaseline} from "@mui/material";
-import Catalog from '../../features/catalog/catalog';
 import Header from "./Header";
 import { Container } from "@mui/system";
 import {ThemeProvider, createTheme} from '@mui/material/styles'
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Outlet } from "react-router";
 const products = [
   {name:'product1', price: 100.00},
@@ -26,6 +27,7 @@ function App() {
   }
   return (
     <ThemeProvider theme={theme}>
+      <ToastContainer position="bottom-right" hideProgressBar theme="colored"/>
       <CssBaseline/>
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange}/>
       <Container>
