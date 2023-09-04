@@ -16,6 +16,7 @@ export default function Catalog(){
       .finally(()=> setLoading(false))
     }, [])
     if (loading) return <LoadingComponent message='Loading products...'/>
+    console.log(products);
     return (
         <Fragment>
             <h1>Catalog</h1>
