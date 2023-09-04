@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, Switch, List, ListItem, Badge, IconButton, Box } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const midLinks = [
@@ -57,7 +57,7 @@ export default function Header({darkMode, handleThemeChange} : Props){
                 </Box>
                 
                 <Box display='flex' alignItems='center'>
-                    <IconButton size='large' edge='start' color='inherit' sx={{mr: 2}}>
+                    <IconButton component={Link} to='/basket' size='large' edge='start' color='inherit' sx={{mr: 2}}>
                         <Badge badgeContent = '4' color="primary">
                             <ShoppingCartIcon/>
                         </Badge>
