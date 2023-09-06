@@ -1,6 +1,7 @@
 
 using API.Data;
 using API.Entities;
+using API.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,8 +16,13 @@ namespace API.Controllers
             this._context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProduct(){
-            return await _context.Products.ToListAsync();
+        public async Task<ActionResult<List<Product>>> GetProducts(string orderBy){
+            var query = _context.Products
+                .Sort(orderBy)
+                .AsQueryable();
+
+            return await query.ToListAsync();
+            // return await _context.Products.ToListAsync();
         }
 
         [HttpGet("{id}")]
