@@ -3,15 +3,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Product } from "../../app/models/product";
 import agent from "../../app/api/agent";
-import { NOTFOUND } from "dns";
 import NotFound from "../../app/errors/NotFound";
 import LoadingComponent from "../../app/layout/LoadingComponent";
-import { useStoreContext } from "../../app/context/StoreContext";
 import { LoadingButton } from "@mui/lab";
 import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
 import { setBasket, removeItem } from "../basket/basketSlice";
 export default function ProductDetails(){
-    // const{basket, setBasket, removeItem} = useStoreContext();
     const { basket } = useAppSelector(state => state.basket);
     const dispatch = useAppDispatch();
 
