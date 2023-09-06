@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
 import { fetchFilters, fetchProductsAsync, productSelectors } from "./catalogSlice";
+import { Grid } from "@mui/material";
 
 
 export default function Catalog(){
@@ -24,9 +25,13 @@ export default function Catalog(){
     if (status.includes('pending')) return <LoadingComponent message='Loading products...'/>
     console.log(products);
     return (
-        <Fragment>
-            <h1>Catalog</h1>
-            <ProductList products={products}></ProductList>
-      </Fragment>
+        <Grid container spacing = {4}>
+            <Grid item xs = {3}>
+
+            </Grid>
+            <Grid item xs = {9}>
+              <ProductList products={products}></ProductList>
+            </Grid>
+      </Grid>
     )
 }
