@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
 import { fetchFilters, fetchProductsAsync, productSelectors, setPageNumber, setProductParams } from "./catalogSlice";
-import { Box, Grid, Pagination, Paper, Typography } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import ProductSearch from "./ProductSearch";
 import RadioButtonGroup from "../../app/components/RadioButtonGroup";
 import CheckboxButtons from "../../app/components/CheckboxButtons";
@@ -17,7 +17,7 @@ const sortOptions = [
 export default function Catalog(){
     // const [products, setProducts] = useState<Product []>([]);
     const products = useAppSelector(productSelectors.selectAll);
-    const { productsLoaded, status, filtersLoaded, brands, types, productParams, metaData} = useAppSelector(state => state.catalog);
+    const { productsLoaded, filtersLoaded, brands, types, productParams, metaData} = useAppSelector(state => state.catalog);
     const dispatch = useAppDispatch();
     // const [loading, setLoading] = useState(true);
 
@@ -29,7 +29,7 @@ export default function Catalog(){
       if (!filtersLoaded) dispatch(fetchFilters());
     }, [dispatch, filtersLoaded])
 
-    if (status.includes('pending') || !metaData) return <LoadingComponent message='Loading products...'/>
+    if (!filtersLoaded) return <LoadingComponent message='Loading products...'/>
     console.log(products);
     return (
         <Grid container columnSpacing = {4}>
@@ -68,10 +68,12 @@ export default function Catalog(){
             </Grid>
         <Grid item xs={3}/>
         <Grid item xs={9} sx={{mb:2}}>
+          {metaData &&
           <AppPagination
             metaData={metaData}
             onPageChange={(page: number) => dispatch(setPageNumber({pageNumber: page}))}
           />
+          }
         </Grid>
       </Grid>
     )
