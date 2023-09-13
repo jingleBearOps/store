@@ -10,20 +10,27 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import agent from '../../app/api/agent';
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Login() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const [values, setValues] = useState({
+        username: '',
+        password: ''
+    })
+    const handleSubmit = (event: any) => {
+        // console.log(values);
+        event.preventDefault();
+        agent.Account.login(values);
+    };
+    function handleInputChange(event: any): void{
+        const {name, value} = event.target;
+        setValues({...values, [name] : value});
+    }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -39,11 +46,12 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              label="Username"
+              name="username"
+            //   autoComplete="email"
               autoFocus
+              onChange={handleInputChange}
+              value = {values.username}
             />
             <TextField
               margin="normal"
@@ -52,8 +60,9 @@ export default function Login() {
               name="password"
               label="Password"
               type="password"
-              id="password"
-              autoComplete="current-password"
+            //   autoComplete="current-password"
+              onChange={handleInputChange}
+              value = {values.password}
             />
             <Button
               type="submit"
