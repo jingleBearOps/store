@@ -34,6 +34,7 @@ export const fetchCurrentUser = createAsyncThunk<User>(
         try{
             const userDto = await agent.Account.currentUser();
             const {basket, ...user} = userDto;//loggined in user
+            if (basket) thunkAPI.dispatch(setBasket(basket));
             localStorage.setItem('user', JSON.stringify(user));
             return user;
         }catch(error: any){
@@ -70,7 +71,7 @@ export const accountSlice = createSlice({
             state.user = action.payload;
         });
         builder.addMatcher(isAnyOf(signInUser.rejected), (state, action) => {
-            console.log(action.payload);
+            throw action.payload;
         })
     })
 })

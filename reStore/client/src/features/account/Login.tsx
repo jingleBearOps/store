@@ -24,8 +24,13 @@ export default function Login() {
         mode: 'onTouched'
     })
     async function submitForm(data: FieldValues){
-      await dispatch(signInUser(data));
-      navigate('/catalog');//move the user to catalog once they are logged in
+      try{
+        await dispatch(signInUser(data));
+        navigate('/catalog');//move the user to catalog once they are logged in
+      }catch (error){
+        console.log(error);
+      }
+
     }
 
   return (
