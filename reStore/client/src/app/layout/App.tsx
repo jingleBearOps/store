@@ -12,17 +12,20 @@ import LoadingComponent from "./LoadingComponent";
 // import { useStoreContext } from "../context/StoreContext";
 import { setBasket } from "../../features/basket/basketSlice";
 import { useAppDispatch } from "../store/configureStore";
+import { fetchCurrentUser } from "../../features/account/accountSlice";
 // const products = [
 //   {name:'product1', price: 100.00},
 //   {name:'product2', price: 200.00},
 //   {name:'product3', price: 300.00},
 // ]
+
 function App() {
   const dispatch  = useAppDispatch();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const buyerId = getCookie('buyerId');
+    dispatch(fetchCurrentUser());
     if (buyerId) {
       agent.Basket.get()
         .then(basket => dispatch(setBasket(basket)))
