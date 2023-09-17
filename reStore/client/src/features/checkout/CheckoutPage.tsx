@@ -24,14 +24,14 @@ function getStepContent(step: number) {
 }
 
 export default function CheckoutPage() {
+    const [activeStep, setActiveStep] = useState(0);
+    const currentValidationSchema = validationSchema[activeStep];
     const methods = useForm({
         mode: 'onTouched',
-        resolver: yupResolver(validationSchema)
-    })
-    const [activeStep, setActiveStep] = useState(0);
-
+        resolver: yupResolver(currentValidationSchema)
+    });
     const handleNext = (data: FieldValues) => {
-        if(activeStep === 0){
+        if(activeStep === 2){//lock the user to the last stage(payment)
             console.log(data)
         }
         setActiveStep(activeStep + 1);
