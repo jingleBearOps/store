@@ -6,6 +6,7 @@ export default function RequireAuth(){
     const location = useLocation();
 
     if(!user){
+        console.log(user)
         return<Navigate  to='/login' state={{from: location}}/>
     }
 
