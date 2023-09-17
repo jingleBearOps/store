@@ -89,6 +89,5 @@ export default function CheckoutPage() {
             </>
             </Paper>
         </FormProvider>
-
     );
 }
