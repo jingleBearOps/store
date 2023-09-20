@@ -70,7 +70,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<PaymentService>();
-    
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -86,6 +86,8 @@ if (app.Environment.IsDevelopment())
         }
     );
 }
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 // app.UseHttpsRedirection();
 app.UseCors(opt => {
@@ -96,6 +98,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapFallbackToController("Index", "Fallback");
+
 var scope =  app.Services.CreateScope();
 var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();

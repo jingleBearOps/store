@@ -88,3 +88,4 @@
 /Users/tianboyd/Desktop/Dev/shop/reStore/API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
 /Users/tianboyd/Desktop/Dev/shop/reStore/API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/tianboyd/Desktop/Dev/shop/reStore/API/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/tianboyd/Desktop/Dev/shop/reStore/API/bin/Debug/net7.0/API.staticwebassets.runtime.json

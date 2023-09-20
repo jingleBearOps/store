@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Outlet } from "react-router";
 import LoadingComponent from "./LoadingComponent";
 // import { useStoreContext } from "../context/StoreContext";
-import { fetchBasketAsync, setBasket } from "../../features/basket/basketSlice";
+import { fetchBasketAsync } from "../../features/basket/basketSlice";
 import { useAppDispatch } from "../store/configureStore";
 import { fetchCurrentUser } from "../../features/account/accountSlice";
 import { useLocation } from "react-router-dom";
