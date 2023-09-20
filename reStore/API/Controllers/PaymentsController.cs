@@ -5,6 +5,7 @@ using API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 namespace API.Controllers
 {
@@ -12,10 +13,12 @@ namespace API.Controllers
     {
         private readonly PaymentService _paymentService;
         private readonly StoreContext _context;
-        public PaymentsController(PaymentService paymentService, StoreContext context)
+        private readonly IConfiguration _config;
+        public PaymentsController(PaymentService paymentService, StoreContext context, IConfiguration config)
         {
             _context = context;
             _paymentService = paymentService;
+            _config = config;
         }
         [Authorize]
         [HttpPost]
@@ -43,6 +46,26 @@ namespace API.Controllers
             return basket.MapBasketToDto();// if successful would return a 200 ok response
         }
 
+        [HttpPost("webhook")]
+        public async Task<ActionResult> StripeWebhook()
+        {
+            var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+
+            var stripeEvent = EventUtility.ConstructEvent(json, Request.Headers["Stripe-Signature"],
+
+            _config["StripeSettings:WhSecret"]);
+
+            var charge = (Charge)stripeEvent.Data.Object;
+
+            var order = await _context.Orders.FirstOrDefaultAsync(x => 
+                x.PaymentIntentId == charge.PaymentIntentId);
+
+            if(charge.Status == "succeeded") order.OrderStatus = Entities.OrderAggregate.OrderStatus.PaymentReceived;
+
+            await _context.SaveChangesAsync();
+            
+            return new EmptyResult();
+        }
 
     }
 }
