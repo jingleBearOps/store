@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/uWHTke4EnuuT4/YxYaRydUWXf/KYt0iB6zUpwPK2N8NG1KyOzIwN0aeQAVCViNBQI/V64LvObdLsPOxtk0JhQ==",
+  "dgSpecHash": "uXh8KXjcUXwXRmrzu9HAjF94rD5+sin334eLUqsmCEdLXH29Wi5YXnnh6TbxXCrSB2skWRrbkBBDymVdO/e+CQ==",
   "success": true,
   "projectFilePath": "/Users/tianboyd/Desktop/Dev/shop/reStore/API/API.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,8 @@
     "/Users/tianboyd/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/Users/tianboyd/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/tianboyd/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/tianboyd/.nuget/packages/npgsql/7.0.4/npgsql.7.0.4.nupkg.sha512",
+    "/Users/tianboyd/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.4/npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
     "/Users/tianboyd/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.4/sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
     "/Users/tianboyd/.nuget/packages/sqlitepclraw.core/2.1.4/sqlitepclraw.core.2.1.4.nupkg.sha512",
     "/Users/tianboyd/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.4/sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
