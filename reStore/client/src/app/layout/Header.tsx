@@ -1,7 +1,6 @@
 import { AppBar, Toolbar, Typography, Switch, List, ListItem, Badge, IconButton, Box } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useStoreContext } from "../context/StoreContext";
 import { useAppSelector } from "../store/configureStore";
 import SignedInMenu from "./SignedInMenu";
 
@@ -34,7 +33,7 @@ export default function Header({darkMode, handleThemeChange} : Props){
     const {user} = useAppSelector(state => state.account);
     const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0)
     return (
-        <AppBar position="static" color="secondary" sx={{mb: 4}}>
+        <AppBar position="static" color="secondary" >
             <Toolbar variant="dense" sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                 <Box display='flex' alignItems='center'>
                     <Typography variant ='h6' component={NavLink}

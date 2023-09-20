@@ -11,6 +11,8 @@ import LoadingComponent from "./LoadingComponent";
 import { fetchBasketAsync, setBasket } from "../../features/basket/basketSlice";
 import { useAppDispatch } from "../store/configureStore";
 import { fetchCurrentUser } from "../../features/account/accountSlice";
+import { useLocation } from "react-router-dom";
+import HomePage from "../../features/home/HomePage";
 // const products = [
 //   {name:'product1', price: 100.00},
 //   {name:'product2', price: 200.00},
@@ -18,6 +20,7 @@ import { fetchCurrentUser } from "../../features/account/accountSlice";
 // ]
 
 function App() {
+  const location = useLocation();
   const dispatch  = useAppDispatch();
   const [loading, setLoading] = useState(false);
 
@@ -46,15 +49,18 @@ function App() {
   function handleThemeChange(){
     setDarkMode(!darkMode);
   }
-  if (loading) return <LoadingComponent message = "Inittialising App..."/>
   return (
     <ThemeProvider theme={theme}>
       <ToastContainer position="bottom-right" hideProgressBar theme="colored"/>
       <CssBaseline/>
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange}/>
-      <Container>
-        <Outlet />
-      </Container>
+      {loading ?  <LoadingComponent message = "Inittialising App..."/> 
+        :location.pathname === '/' ? <HomePage/>
+        : <Container sx={{mb: 4}}>
+            <Outlet />
+          </Container>
+      }
+
     </ThemeProvider>
   );
 }
