@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Test
-        run: echo $(ls)
+        run: ls > temp.txt && cat temp.txt
       -
         name: Build and push
         uses: docker/build-push-action@v3
