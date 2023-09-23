@@ -24,7 +24,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:API"
+          context: "{{defaultContext}}:reStore"
           file: ./reStore/API/Dockerfile
           push: true
           tags: jingzhuot/restore:latest
