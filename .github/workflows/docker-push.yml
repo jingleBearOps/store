@@ -11,6 +11,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -21,11 +23,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Test
-        run: ls > temp.txt && cat temp.txt
+        run: pwd
       -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}/reStore/API"
+          context: ./reStore/API
           push: true
           tags: jingzhuot/restore:latest
