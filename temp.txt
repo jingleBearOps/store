@@ -1,4 +1,0 @@
-README.md
-courseAssets
-reStore
-temp.txt
