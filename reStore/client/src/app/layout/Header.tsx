@@ -58,6 +58,20 @@ export default function Header({darkMode, handleThemeChange} : Props){
                                 {title.toUpperCase()}
                             </ListItem>
                         ))}
+
+                        {/* only authenticated user have access */}
+                        {user &&
+                            <ListItem
+                                    component = {NavLink}
+                                    to={'/inventory'}
+                                    sx={navStyle}
+                                >
+                                    INVENTORY
+                            </ListItem>
+                        }
+                        {/* only authenticated user have access */}
+
+
                     </List>
                 </Box>
                 
@@ -84,7 +98,7 @@ export default function Header({darkMode, handleThemeChange} : Props){
                                 {title.toUpperCase()}
                             </ListItem>
                         ))}
-                    </List>
+                        </List>
                     )}
                    
                 </Box>
