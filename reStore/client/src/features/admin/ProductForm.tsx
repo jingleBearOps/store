@@ -12,8 +12,9 @@ interface Props {
     cancelEdit: () => void;
 }
 export default function ProductForm({product, cancelEdit}: Props) {
-    const { control, reset, handleSubmit } = useForm();
+    const { control, reset, handleSubmit, watch } = useForm();
     const {brands, types} = useProducts(); 
+    const watchFile = watch('file', null);
 
     useEffect(() => {
         if(product) reset(product);
@@ -58,7 +59,14 @@ export default function ProductForm({product, cancelEdit}: Props) {
                     <AppTextInput multiline={true} rows={4} control={control} name='description' label='Description' />
                 </Grid>
                 <Grid item xs={12}>
-                    <AppDropzone control={control} name='file'  />
+                    <Box display="flex" justifyContent='space-between' alignItems='center'>
+                        <AppDropzone control={control} name='file'  />
+                        {watchFile ? (
+                            <img src={watchFile.preview} style={{maxHeight: 200}} alt="preview" />
+                        ): 
+                            <img src={product?.pictureUrl} style={{maxHeight: 200}} alt={product?.name} />
+                        }
+                    </Box>
                 </Grid>
             </Grid>
             <Box display='flex' justifyContent='space-between' sx={{mt: 3}}>

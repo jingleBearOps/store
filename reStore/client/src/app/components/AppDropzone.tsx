@@ -1,3 +1,5 @@
+import { UploadFile } from '@mui/icons-material';
+import { FormControl, FormHelperText, Typography } from '@mui/material';
 import {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
 import { UseControllerProps, useController } from 'react-hook-form'
@@ -6,6 +8,20 @@ interface Props extends UseControllerProps {}
 export default function AppDropzone(props: Props) {
 
     const {fieldState, field} = useController({...props, defaultValue: null});
+
+    const dzStyles = {
+        display: 'flex',
+        border: 'dashed 3px #eee',
+        borderColor: '#eee',
+        borderRadius: '5px',
+        paddingTop: '30px',
+        alignItems: 'center',
+        height: 200,
+        width: 500
+    }
+    const dzActive = {
+        borderColor: 'green'
+    }
 
     const onDrop = useCallback((acceptedFiles: any) => {
         // Do something with the files
@@ -17,12 +33,12 @@ export default function AppDropzone(props: Props) {
 
     return (
         <div {...getRootProps()}>
-        <input {...getInputProps()} />
-        {
-            isDragActive ?
-            <p>Drop the files here ...</p> :
-            <p>Drag 'n' drop some files here, or click to select files</p>
-        }
+            <FormControl style={isDragActive ? {...dzStyles, ...dzActive}: dzStyles}>
+                <input {...getInputProps()}/>
+                <UploadFile sx={{fontSize: '100px'}}/>
+                <Typography variant='h4'> Drop Image Here</Typography>
+                <FormHelperText>{fieldState.error?.message}</FormHelperText>
+            </FormControl>
         </div>
     )
 }
