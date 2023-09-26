@@ -1,9 +1,11 @@
 
 using System.Text.Json;
 using API.Data;
+using API.DTOs;
 using API.Entities;
 using API.Extensions;
 using API.RequestHelpers;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +16,11 @@ namespace API.Controllers
     public class ProductsController : BaseApiController
     {   
         private readonly StoreContext _context;
-        public ProductsController(StoreContext context)
+        private readonly IMapper _mapper;
+        public ProductsController(StoreContext context, IMapper mapper)
         {
             this._context = context;
+            this._mapper = mapper;
         } 
         [HttpGet]
         public async Task<ActionResult<PagedList<Product>>> GetProducts(
@@ -54,8 +58,10 @@ namespace API.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<ActionResult<Product>> CreateProduct(Product product)
+        public async Task<ActionResult<Product>> CreateProduct(CreateProductDto productDto)
         {
+            var product = _mapper.Map<Product>(productDto); // this map the productDTO into product
+
             _context.Products.Add(product);
 
             var result = await _context.SaveChangesAsync() > 0;
