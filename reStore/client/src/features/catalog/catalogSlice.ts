@@ -102,6 +102,11 @@ export const catalogSlice = createSlice({
         },
         setProduct: (state, action) => {
             productsAdapter.upsertOne(state, action.payload);
+            // state.productsLoaded = false; //if the pagination number error occur un comment this one and commant the above one
+        },
+        removeProduct: (state, action) => {
+            productsAdapter.removeOne(state, action.payload);
+            // state.productsLoaded = false;//if the pagination number error occur un comment this one and commant the above one
         }
     },
     extraReducers: (builder => {
@@ -146,4 +151,4 @@ export const catalogSlice = createSlice({
 })
 export const productSelectors = productsAdapter.getSelectors((state: RootState) => state.catalog);
 
-export const {setProductParams, resetProductParams, setMetaData, setPageNumber, setProduct} = catalogSlice.actions;
+export const {setProductParams, resetProductParams, setMetaData, setPageNumber, setProduct, removeProduct} = catalogSlice.actions;
