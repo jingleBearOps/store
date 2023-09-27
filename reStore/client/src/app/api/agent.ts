@@ -47,6 +47,9 @@ axios.interceptors.response.use(async response => {
         case 404:
             toast.error(data.title)
             break;
+        case 403:
+            toast.error('You are not allowed to do that! Ask Administrator for the access')
+            break;
         case 500:
             router.navigate('/server-error', {state: {error:data}});
             break;

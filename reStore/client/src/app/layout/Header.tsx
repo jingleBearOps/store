@@ -60,7 +60,7 @@ export default function Header({darkMode, handleThemeChange} : Props){
                         ))}
 
                         {/* only authenticated user have access */}
-                        {user &&
+                        {user && user.roles?.includes('Admin') &&
                             <ListItem
                                     component = {NavLink}
                                     to={'/inventory'}
