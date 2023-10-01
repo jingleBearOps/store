@@ -1,0 +1,58 @@
+.macbook-pro {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.macbook-pro .div {
+  background-color: #ffffff;
+  height: 982px;
+  position: relative;
+  width: 1512px;
+}
+
+.macbook-pro .rectangle-1 {
+  left: 112px !important;
+  position: absolute !important;
+  top: 73px !important;
+}
+
+.macbook-pro .welcome-to-the {
+  color: #000000;
+  font-family: "Itim-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  left: 1027px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 145px;
+}
+.rectangle {
+  background-color: #eba4a4;
+  height: 438px;
+  width: 594px;
+}
+.macbook-pro .text-wrapper {
+  color: #000000;
+  font-family: "Itim-Regular";
+  
+  font-size: 48px;
+  font-weight: 400;
+  left: 183px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 635px;
+}
+
+.macbook-pro .rectangle-2 {
+  background-color: #d9d9d9;
+  height: 329px;
+  left: 718px;
+  position: absolute;
+  top: 575px;
+  width: 709px;
+}
