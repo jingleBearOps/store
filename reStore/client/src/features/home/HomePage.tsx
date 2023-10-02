@@ -1,5 +1,6 @@
 import {
   Box,
+  Container,
   Grid,
   Paper,
   Typography,
@@ -8,6 +9,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import "./style.css";
+import Promotions from "./promotion";
 export default function HomePage() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md")); //if true we are in mobile otherwise we are in desktop world
@@ -15,10 +17,10 @@ export default function HomePage() {
     display: "flex",
     // justifyContent: "center",
     // alignItems: "center",
-    width: "100%",
+    width: "95%",
     height: "400px",
     padding: "0px 0px",
-    margin: "20px",
+    m: "20px",
     background: "white",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
@@ -70,7 +72,16 @@ export default function HomePage() {
     },
   }));
   return (
-    <BannerContainer>
+    <>
+    <Container sx={{ 
+      mb: 4,
+    background: '#eaeaea',
+    // display: "flex",
+    // justifyContent: "center",
+  }} 
+    maxWidth="xl"
+    >
+    <BannerContainer sx={{mt: "20px"}}>
       <BannerImage src="/images/banner/hook1.jpg"/>
       <BannerContent>
         <Typography variant="h6">TAI RUBBER assist hook</Typography>
@@ -83,5 +94,8 @@ export default function HomePage() {
         </BannerDescription>
       </BannerContent>
     </BannerContainer>
+    <Promotions ></Promotions>
+    </Container>
+    </>
   );
 }

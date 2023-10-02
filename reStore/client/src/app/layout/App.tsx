@@ -58,13 +58,7 @@ function App() {
       {loading ? (
         <LoadingComponent message="Inittialising App..." />
       ) : location.pathname === "/" ? (
-        <Container sx={{ 
-          mb: 4,
-        background: '#eaeaea',
-        display: "flex",
-        justifyContent: "center",}} maxWidth="xl">
           <HomePage />
-        </Container>
       ) : (
         <Container sx={{ mb: 4 }} maxWidth="xl">
           <Outlet />
