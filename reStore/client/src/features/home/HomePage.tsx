@@ -1,147 +1,81 @@
-import { Box, Grid, Paper, Typography, styled } from "@mui/material";
-import Slider from "react-slick";
+import {
+  Box,
+  Grid,
+  Paper,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
 import "./style.css";
 export default function HomePage() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md")); //if true we are in mobile otherwise we are in desktop world
+  const BannerContainer = styled(Box)(({ theme }) => ({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    padding: "0px 0px",
+    background: "#C2CAD0",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
+  }));
+  const BannerImage = styled('img')(({src, theme }) => ({
+    src: `url(${src}`,
+    width: '100',
+    [theme.breakpoints.down('md')]: {
+      width: '110',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '100',
+      height: '100'
+    },
+  }))
+  const BannerContent = styled(Box)(() => ({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    maxWidth: 420,
+    padding: "30px",
+  }));
+  const BannerTitle = styled(Typography)(({ theme }) => ({
+    lineHeight: 1.5,
+    fontSize: "55px",
+    marginBottom: "20px",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "50px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "42px",
+    },
+  }));
+  const BannerDescription = styled(Typography)(({ theme }) => ({
+    lineHeight: 1.25,
+    letterSpacing: 1.25,
+    marginBottom: "3em",
+    [theme.breakpoints.down("md")]: {
+      lineHeight: 1.15,
+      letterSpacing: 1.15,
+      marginBottom: "1.5em",
+    },
   }));
   return (
-    <Box
-      justifyContent="center"
-      sx={{
-        width: "100%",
-        background: "white",
-        margin: "10px",
-        height: "900px",
-      }}
-    >
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid
-          item
-          xs={3}
-          sx={{ padding: "5px", height: "700px", background: "black" }}
-        >
-          <Typography
-            variant="h1"
-            fontSize={{ md: 50 }}
-            sx={{ color: "white" }}
-          >
-            It’s all in the fall
-          </Typography>
-          <br></br>
-          <Typography
-            variant="h2"
-            fontSize={{ md: 30 ,  height: "700px"}}
-            sx={{ color: "white" }}
-          >
-            The key to slow-pitch jigging is breathing life into a hunk of
-            metal, and mastering this is nothing short of an art.
-          </Typography>
-        </Grid>
-        <Grid item xs={6} sx={{ padding: "5px" }}>
-          <Slider {...settings}>
-            <div>
-              <img
-                src="/images/hero3.jpg"
-                alt="hero"
-                style={{ display: "block", width: "100%", maxHeight: 650 }}
-              />
-            </div>
-            <div>
-              <img
-                src="/images/hero2.jpg"
-                alt="hero"
-                style={{ display: "block", width: "100%", maxHeight: 650 }}
-              />
-            </div>{" "}
-            <div>
-              <img
-                src="/images/hero1.jpg"
-                alt="hero"
-                style={{ display: "block", width: "100%", maxHeight: 650 }}
-              />
-            </div>
-            <Box display="flex" justifyContent="center" sx={{ p: 4 }}>
-              <Typography variant="h1">Welcome to the shop!</Typography>
-            </Box>
-          </Slider>
-        </Grid>
-        <Grid
-          item
-          xs={3}
-          sx={{ padding: "5px", height: "700px", background: "grey" }}
-        >
-          <Typography
-            variant="h1"
-            fontSize={{ md: 50 }}
-            sx={{ color: "white" }}
-          >
-            Try it your self
-          </Typography>
-          <br></br>
-          <Typography
-            variant="h2"
-            fontSize={{ md: 20 }}
-            sx={{ color: "white" }}
-          >
-Regarding deep-sea fishing, slow-pitch jigging is a great way to catch big fish. This method of fishing involves casting a jig into the water, allowing it to sink towards the bottom, and then lifting the rod up and down at a steady rhythm—hence the name "slow pitch." It's an effective way to target all kinds of fish, from grouper, snapper, and amberjack to tuna, mackerel, and more. This beginner's guide will give you everything you need to know about slow-pitch jigging. 
-          </Typography>
-        </Grid>
-      </Grid>
-    </Box>
-
-    // {/* <div className="macbook-pro">
-    //                       <div className="div">
-    //                           <div className="rectangle" />;
-    //                           <p className="welcome-to-the">
-    //                           Welcome to the <br />
-    //                           fishing shop
-    //                           </p>
-    //                           <p className="text-wrapper">
-    //                           Welcome to the <br />
-    //                           fishing shop
-    //                           </p>
-    //                           <div className="rectangle-2" />
-    //                       </div>
-    //                   </div> */}
-    // <div>
-    //   <Slider {...settings}>
-    //     <div>
-    //       <img
-    //         src="/images/hero3.jpg"
-    //         alt="hero"
-    //         style={{ display: "block", width: "100%", maxHeight: 500 }}
-    //       />
-    //     </div>
-    //     <div>
-    //       <img
-    //         src="/images/hero2.jpg"
-    //         alt="hero"
-    //         style={{ display: "block", width: "100%", maxHeight: 500 }}
-    //       />
-    //     </div>{" "}
-    //     <div>
-    //       <img
-    //         src="/images/hero1.jpg"
-    //         alt="hero"
-    //         style={{ display: "block", width: "100%", maxHeight: 500 }}
-    //       />
-    //     </div>
-    //     <Box display="flex" justifyContent="center" sx={{ p: 4 }}>
-    //       <Typography variant="h1">Welcome to the shop!</Typography>
-    //     </Box>
-    //   </Slider>
-    // </div>
+    <BannerContainer>
+      <BannerImage src="/images/banner/hook1.png"/>
+      <BannerContent>
+        <Typography variant="h6">TAI RUBBER assist hook</Typography>
+        <BannerTitle variant="h2">New Products</BannerTitle>
+        <BannerDescription variant="subtitle1">
+        A collaboration model with Japanese hook maker『ICHIKAWA』. This model uses the shape that can be used in any situation and wire diameter hook that can easily stab with less power. Pursuing the balance between strength and rigidity.
+(1 pack for 3 pcs)
+*Thread the leader line through movable head necktie unit and then connect with the ring.
+*It can stab with less power, so we recommend to hook-up only with retrieving the line.
+        </BannerDescription>
+      </BannerContent>
+    </BannerContainer>
   );
 }
