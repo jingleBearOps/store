@@ -13,26 +13,27 @@ export default function HomePage() {
   const matches = useMediaQuery(theme.breakpoints.down("md")); //if true we are in mobile otherwise we are in desktop world
   const BannerContainer = styled(Box)(({ theme }) => ({
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
     width: "100%",
-    height: "100%",
+    height: "400px",
     padding: "0px 0px",
-    background: "#C2CAD0",
+    margin: "20px",
+    background: "white",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
-      alignItems: "center",
+      // alignItems: "center",
     },
   }));
   const BannerImage = styled('img')(({src, theme }) => ({
     src: `url(${src}`,
-    width: '100',
+    width: '100px',
     [theme.breakpoints.down('md')]: {
-      width: '110',
+      width: '50px',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '100',
-      height: '100'
+      width: '30px',
+      height: '30px'
     },
   }))
   const BannerContent = styled(Box)(() => ({
@@ -44,13 +45,13 @@ export default function HomePage() {
   }));
   const BannerTitle = styled(Typography)(({ theme }) => ({
     lineHeight: 1.5,
-    fontSize: "55px",
-    marginBottom: "20px",
+    fontSize: "40px",
+    marginBottom: "10px",
     [theme.breakpoints.down("md")]: {
-      fontSize: "50px",
+      fontSize: "35px",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: "42px",
+      fontSize: "30px",
     },
   }));
   const BannerDescription = styled(Typography)(({ theme }) => ({
@@ -62,10 +63,15 @@ export default function HomePage() {
       letterSpacing: 1.15,
       marginBottom: "1.5em",
     },
+    [theme.breakpoints.down("sm")]: {
+      lineHeight: 1,
+      letterSpacing: 1,
+      marginBottom: "1.2em",
+    },
   }));
   return (
     <BannerContainer>
-      <BannerImage src="/images/banner/hook1.png"/>
+      <BannerImage src="/images/banner/hook1.jpg"/>
       <BannerContent>
         <Typography variant="h6">TAI RUBBER assist hook</Typography>
         <BannerTitle variant="h2">New Products</BannerTitle>
