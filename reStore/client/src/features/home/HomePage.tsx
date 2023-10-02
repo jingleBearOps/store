@@ -17,7 +17,7 @@ export default function HomePage() {
     display: "flex",
     // justifyContent: "center",
     // alignItems: "center",
-    width: "95%",
+    width: "100%",
     height: "400px",
     padding: "0px 0px",
     m: "20px",
