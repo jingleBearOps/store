@@ -69,11 +69,11 @@ export default function Header() {
               mt: 4,
               color: "black",
             }}
-          >
+          >https://www.linkedin.com/in/jingzhuo-tian-297034216/
             <FacebookIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://www.facebook.com/profile.php?id=100010428930771', '_blank')}/>
-            <LinkedInIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://github.com/jingleBearOps', '_blank')}/>
+            <LinkedInIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://www.linkedin.com/in/jingzhuo-tian-297034216/', '_blank')}/>
             <InstagramIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://www.instagram.com/getthenull/', '_blank')}/>
-            <GitHubIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://www.linkedin.com/in/jingzhuo-tian-297034216/', '_blank')}/>
+            <GitHubIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://github.com/jingleBearOps', '_blank')}/>
           </Box>
         </Grid>
         <Grid item md={6} lg={2}>
