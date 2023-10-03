@@ -13,6 +13,7 @@ import { useAppDispatch } from "../store/configureStore";
 import { fetchCurrentUser } from "../../features/account/accountSlice";
 import { useLocation } from "react-router-dom";
 import HomePage from "../../features/home/HomePage";
+import Footer from "./Footer";
 
 // const products = [
 //   {name:'product1', price: 100.00},
@@ -64,6 +65,7 @@ function App() {
           <Outlet />
         </Container>
       )}
+      <Footer/>
     </ThemeProvider>
   );
 }
