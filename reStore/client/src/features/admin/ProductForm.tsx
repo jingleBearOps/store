@@ -55,22 +55,22 @@ export default function ProductForm({product, cancelEdit}: Props) {
                 <Grid item xs={12} sm={12}>
                     <AppTextInput control={control} name='name' label='Product name' />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                     <AppSelectList control={control} items = {brands} name='brand' label='Brand' />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <AppSelectList control={control} items = {types} name='type' label='Type' />
-                </Grid>
+                </Grid> */}
 {/* 
                 above: dropdown select
                 bottom: customized input */}
 
-                {/* <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                     <AppTextInput control={control} name='brand' label='Brand' />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <AppTextInput control={control} name='type' label='Type' />
-                </Grid> */}
+                </Grid>
                 <Grid item xs={12} sm={6}>
                     <AppTextInput type='number' control={control} name='price' label='Price' />
                 </Grid>
