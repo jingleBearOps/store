@@ -42,7 +42,7 @@ export default function HomePage() {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    maxWidth: 420,
+    maxWidth: 600,
     padding: "30px",
   }));
   const BannerTitle = styled(Typography)(({ theme }) => ({
@@ -79,7 +79,7 @@ export default function HomePage() {
     // display: "flex",
     // justifyContent: "center",
   }} 
-    maxWidth="xl"
+    maxWidth="lg"
     >
     <BannerContainer sx={{mt: "20px"}}>
       <BannerImage src="/images/banner/hook1.jpg"/>
