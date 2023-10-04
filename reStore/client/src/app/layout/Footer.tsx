@@ -55,26 +55,21 @@ export default function Header() {
           <FooterTitle variant="body1" color={"white"}>
             About us
           </FooterTitle>
-          <Typography variant="caption" color={"white"}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
-            molestiae! Nulla maiores adipisci odio dignissimos dolore nam
-            possimus libero quasi veritatis tempora nemo, ullam odit est
-            laudantium dolorem veniam. Velit. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Itaque ullam nihil explicabo
-            cupiditate obcaecati distinctio totam sapiente ipsum hic illo. Unde
-            nemo consequuntur repellendus cupiditate velit quis quos, hic omnis!
-          </Typography>
           <Box
             sx={{
               mt: 4,
               color: "black",
             }}
-          >https://www.linkedin.com/in/jingzhuo-tian-297034216/
+          >
             <FacebookIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://www.facebook.com/profile.php?id=100010428930771', '_blank')}/>
             <LinkedInIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://www.linkedin.com/in/jingzhuo-tian-297034216/', '_blank')}/>
             <InstagramIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://www.instagram.com/getthenull/', '_blank')}/>
             <GitHubIcon sx={{ mr: 1 , cursor: "pointer"}}  onClick={() => window.open('https://github.com/jingleBearOps', '_blank')}/>
           </Box>
+          <Typography variant="caption" color={"white"}>
+          Tian Tian Jigging is a tackle shop located on south coast of beautiful Vancouver island ,we mainly focused on a bottom fishing techniques calle on a fishing adventure. we fishing for Large Lincod, Halibut, Rockfish, Salmon, Tuna and other species.
+          </Typography>
+
         </Grid>
         <Grid item md={6} lg={2}>
           <FooterTitle variant="body1" color={"white"}>
