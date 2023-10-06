@@ -18,13 +18,13 @@ export default function ProductCard({product}: Props){
         <Card >
             <CardHeader
                 avatar={
-                    <Avatar sx = {{bgcolor: 'secondary.dark'}}>
+                    <Avatar sx = {{bgcolor:"#454545"}}>
                         {product.name.charAt(0).toUpperCase()}
                     </Avatar>
                 }
                 title={product.name}
                 titleTypographyProps={{
-                    sx: {fontWeight: 'bold', color: 'primary.main'}
+                    sx: {fontWeight: 'bold', color: "#FF6000"}
                 }}
             />
         <CardMedia
@@ -33,7 +33,7 @@ export default function ProductCard({product}: Props){
           title={product.name}
         />
         <CardContent>
-          <Typography gutterBottom  color = 'secondary' variant="h5" component="div">
+          <Typography gutterBottom  color = "#FF6000" variant="h5" component="div">
             {currencyFormat(product.price)}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -44,10 +44,11 @@ export default function ProductCard({product}: Props){
           <LoadingButton
           loading={status === ('pending + product.id')}
           onClick={()=>dispatch(addBasketItemAsync({productId: product.id}))}
+          sx={{color: "#454545"}}
           size="small">
             Add to card
           </LoadingButton>
-          <Button component={Link}  to={`/catalog/${product.id}`} size="small">View</Button>
+          <Button component={Link}  sx={{color: "#454545"}} to={`/catalog/${product.id}`} size="small">View</Button>
         </CardActions>
       </Card>
     )

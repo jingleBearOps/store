@@ -20,7 +20,7 @@ const navStyle = {
         color:'grey'
     },
     '&.active': {
-        color: 'black'
+        color: 'inherit'
     },
     textDecoration: 'none'
 }
@@ -33,14 +33,14 @@ export default function Header({darkMode, handleThemeChange} : Props){
     const {user} = useAppSelector(state => state.account);
     const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0)
     return (
-        <AppBar position="static" color="secondary" >
+        <AppBar className="navBar" position="static" sx={{background:"#454545", color:"#FF6000"}} >
             <Toolbar variant="dense" sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                 <Box display='flex' alignItems='center'>
                     <Typography variant ='h6' component={NavLink}
                     to='/'
                     sx={navStyle}
                     >
-                        Re-Store
+                        TT-Jigging
                     </Typography>
                     <Switch checked={darkMode} onChange={handleThemeChange}/>
                 </Box>

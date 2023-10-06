@@ -19,7 +19,7 @@ export default function Promotions() {
     alignItems: "center",
     padding: "20px 0px 20px 0px",
     overflow: "hidden",
-    background: "purple",
+    background: "#454545",
   }));
   const MessageText = styled(Typography)(({ theme }) => ({
     fontFamily: '"Rockwell", "cursive"',
