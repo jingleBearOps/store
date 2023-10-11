@@ -14,8 +14,10 @@ import { LoadingButton } from "@mui/lab";
 export default function Inventory() {
     const {products, metaData} = useProducts();
     const dispatch = useAppDispatch();
+
     const [editMode, setEditMode] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState<Product | undefined>(undefined);
+    
     const [loading, setLoading] = useState(false);
     const [target, setTarget] = useState(0);
 

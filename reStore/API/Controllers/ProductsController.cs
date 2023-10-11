@@ -58,13 +58,21 @@ namespace API.Controllers
 
             return Ok(new {brands, types});
         }
+
+
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct([FromForm]CreateProductDto productDto)
         {
+            Console.WriteLine("----------------------------------------------HERE--------------------------------------------");
+            Console.WriteLine(productDto);
+            // System.Text.Json.JsonSerializer.Serialize(productDto);
             var product = _mapper.Map<Product>(productDto); // this map the productDTO into product
 
-            if(productDto.File != null)
+            Console.WriteLine(product);
+            Console.WriteLine("----------------------------------------------END--------------------------------------------");
+
+            if(productDto.File != null)// cloudinary image storage
             {
                 var imageResult = await _imageService.AddImageAsync(productDto.File);
 

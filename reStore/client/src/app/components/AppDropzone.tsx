@@ -1,6 +1,6 @@
 import { UploadFile } from '@mui/icons-material';
 import { FormControl, FormHelperText, Typography } from '@mui/material';
-import {useCallback} from 'react'
+import {useCallback, useState} from 'react'
 import {useDropzone} from 'react-dropzone'
 import { UseControllerProps, useController } from 'react-hook-form'
 
@@ -22,14 +22,25 @@ export default function AppDropzone(props: Props) {
     const dzActive = {
         borderColor: 'green'
     }
+    const [pictures, setPictures] = useState([])
 
     const onDrop = useCallback((acceptedFiles: any) => {
         // Do something with the files
+        console.log(acceptedFiles);
         acceptedFiles[0] = Object.assign(acceptedFiles[0],
             {preview: URL.createObjectURL(acceptedFiles[0])});
         field.onChange(acceptedFiles[0]);
+        console.log(acceptedFiles[0]);
+        
+        setPictures( pictures.concat(acceptedFiles[0]))
+        console.log(pictures)
     }, [field])
-    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+    console.log(pictures)
+
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, maxFiles:3})
+    // console.log(getRootProps)
+    // console.log(getInputProps)
+    // console.log(isDragActive)
 
     return (
         <div {...getRootProps()}>
